@@ -211,3 +211,8 @@ function handlePlayButton(e) {
     }
     toggleMenuVisibility();
 }
+
+function setGameMenuEventHandlers() {
+    $playButton.addEventListener("click", handlePlayButton, false);
+}
+setGameMenuEventHandlers();
