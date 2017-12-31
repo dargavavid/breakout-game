@@ -116,3 +116,8 @@ function handleBlockBallCollision() {
         }
     }
 }
+
+function calculatePoints(type) {
+    var points = type === 1 ? 10 : type === 2 ? 25 : type === 3 ? 100 : 500;
+    return points;
+}
