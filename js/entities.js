@@ -74,3 +74,17 @@ var Entity = /** @class */ (function () {
     };
     return Entity;
 }());
+
+var Ball = /** @class */ (function (_super) {
+    __extends(Ball, _super);
+    function Ball(x, y, width, height, imgsrcs, vx, vy) {
+        return _super.call(this, x, y, width, height, imgsrcs, vx, vy) || this;
+    }
+    Ball.prototype.invertDirection = function (ix, iy) {
+        if (ix === void 0) { ix = 1; }
+        if (iy === void 0) { iy = 1; }
+        this.vx *= ix;
+        this.vy *= iy;
+    };
+    return Ball;
+}(Entity));
