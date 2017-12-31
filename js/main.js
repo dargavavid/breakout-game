@@ -97,3 +97,22 @@ function setBlocksPattern(blocks, pattern) {
         }
     }
 }
+
+function handleBlockBallCollision() {
+    for (var _i = 0, blocks_1 = blocks; _i < blocks_1.length; _i++) {
+        var block = blocks_1[_i];
+        if (block.type > 0) {
+            if (detectCollision(block, ball)) {
+                //Award points, handle special events:
+                var points = calculatePoints(block.type);
+                incrementGameScore(points);
+                updateGameScoreDiv(gameScore);
+                increaseBallSpeed();
+                //Make block disappear, bounce ball, end loop (no more block collision in this frame).
+                block.type = 0;
+                ball.invertDirection(1, -1);
+                break;
+            }
+        }
+    }
+}
