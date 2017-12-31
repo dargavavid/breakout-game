@@ -26,3 +26,14 @@ function handleBoundaries() {
         ball.invertDirection(1, -1);
     }
 }
+
+function detectCollision(a, b) {
+    var horizontalCollision = false, verticalCollision = false;
+    if (a.x + a.width > b.x && a.x < b.x + b.width) {
+        horizontalCollision = true;
+    }
+    if (a.y + a.height > b.y && a.y < b.y + b.height) {
+        verticalCollision = true;
+    }
+    return horizontalCollision && verticalCollision;
+}
