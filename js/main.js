@@ -153,3 +153,14 @@ function rwSelection(rarities) {
         }
     }
 }
+
+function createRandomPattern(size, min, max) {
+    var pattern = [];
+    var randNum;
+    for (var i = 0; i < size; i++) {
+        // randNum = Math.floor(Math.random() * (max - min) + min);
+        randNum = rwSelection(blockRarities);
+        pattern.push(randNum);
+    }
+    return pattern;
+}
