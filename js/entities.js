@@ -88,3 +88,21 @@ var Ball = /** @class */ (function (_super) {
     };
     return Ball;
 }(Entity));
+
+var Block = /** @class */ (function (_super) {
+    __extends(Block, _super);
+    function Block(x, y, width, height, type, colors) {
+        if (colors === void 0) { colors = ["black"]; }
+        var _this = _super.call(this, x, y, width, height) || this;
+        _this.type = type;
+        _this.colors = colors;
+        return _this;
+    }
+    Block.prototype.render = function (context) {
+        if (this.type > 0) {
+            context.fillStyle = this.colors[this.type - 1]; //Substract 1 because of zero based array.
+            context.fillRect(this.x, this.y, this.width, this.height);
+        }
+    };
+    return Block;
+}(Entity));
