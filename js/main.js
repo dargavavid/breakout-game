@@ -64,3 +64,25 @@ function handleGameOver() {
         location.reload(); //Reload page/restart game.NOTE: upgrade later to endgame screen.
     }
 }
+
+function initBlocks(rows, columns) {
+    var blocks = [];
+    var blockColors = ["white", "blue", "green", "gold"];
+    var gap = 5;
+    var blockWidth = ($fg.width - gap * columns - gap) / columns;
+    var blockHeight = ($fg.height / 2) / rows;
+    var currentX = gap, currentY = gap;
+    var block;
+    for (var i = 0, counter = 1; i < rows * columns; i++ , counter++) {
+        block = new Block(currentX, currentY, blockWidth, blockHeight, 1, blockColors);
+        blocks.push(block);
+        if (counter % columns === 0) {
+            currentX = gap;
+            currentY += blockHeight + gap;
+        }
+        else {
+            currentX += blockWidth + gap;
+        }
+    }
+    return blocks;
+}
