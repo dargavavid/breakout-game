@@ -164,3 +164,11 @@ function createRandomPattern(size, min, max) {
     }
     return pattern;
 }
+
+//Define controlls and control functions:
+function movePaddleLeft() {
+    paddle.move(-5, 0);
+}
+function movePaddleRight() {
+    paddle.move(5, 0);
+}
