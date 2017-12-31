@@ -58,3 +58,9 @@ function handlePaddleBallCollision() {
         }
     }
 }
+
+function handleGameOver() {
+    if (ball.y > $fg.height) {
+        location.reload(); //Reload page/restart game.NOTE: upgrade later to endgame screen.
+    }
+}
