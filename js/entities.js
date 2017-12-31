@@ -9,11 +9,12 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 var Entity = /** @class */ (function () {
-    function Entity(x, y, width, height, imgsrcs, vx, vy, isAnimated) {
+    function Entity(x, y, width, height, imgsrcs, vx, vy, isAnimated, color) {
         if (imgsrcs === void 0) { imgsrcs = []; }
         if (vx === void 0) { vx = 0; }
         if (vy === void 0) { vy = 0; }
         if (isAnimated === void 0) { isAnimated = false; }
+        if (color === void 0) { color = "white"; }
         this.frame = 0;
         this.frameKey = 5;
         this.currentImageIndex = 0;
@@ -25,6 +26,7 @@ var Entity = /** @class */ (function () {
         this.vx = vx;
         this.vy = vy;
         this.isAnimated = isAnimated;
+        this.color = color;
     }
     Entity.prototype.setImages = function (srcs) {
         var images = [];
@@ -54,6 +56,7 @@ var Entity = /** @class */ (function () {
             context.drawImage(this.images[this.currentImageIndex], this.x, this.y);
         }
         else {
+            context.fillStyle = this.color;
             context.fillRect(this.x, this.y, this.width, this.height);
         }
     };
