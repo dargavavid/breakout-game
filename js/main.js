@@ -201,3 +201,13 @@ var $settingsButton = document.querySelector("#settings-menu-button");
 function toggleMenuVisibility() {
     $gameMenu.classList.toggle("hidden");
 }
+
+function handlePlayButton(e) {
+    if (game.isRunning) {
+        game.start();
+    }
+    else {
+        game.unpause();
+    }
+    toggleMenuVisibility();
+}
