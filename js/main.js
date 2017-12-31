@@ -142,3 +142,14 @@ function increaseBallSpeed() {
         ball.vy *= ballSpeedIncrement;
     }
 }
+
+function rwSelection(rarities) {
+    var randNum = Math.random();
+    var denominator = rarities.reduce(function (sum, x) { return sum += x; }, 0);
+    for (var i = 0; i < rarities.length; i++) {
+        randNum -= rarities[i] / denominator;
+        if (randNum <= 0) {
+            return i;
+        }
+    }
+}
