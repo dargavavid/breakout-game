@@ -47,3 +47,23 @@ body {
   letter-spacing: 8px;
   text-align: center;
 }
+
+canvas {
+  background-color: black;
+  border: solid white 1px;
+}
+
+#background {
+  display: none;
+}
+
+.centered {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.hidden {
+  display: none;
+}
