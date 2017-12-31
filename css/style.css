@@ -12,3 +12,25 @@ body, html {
 body {
   background-color: black;
 }
+
+#app {
+
+}
+
+#game-menu {
+  width: 250px;
+  padding: 20px;
+  background-color: black;
+  border: solid white 4px;
+}
+
+.menu-button {
+  width: 100%;
+  height: 50px;
+  margin: 5px 0;
+  color: white;
+  text-align: center;
+  line-height: 50px;
+  cursor: pointer;
+  border: solid white 2px;
+}
