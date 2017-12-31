@@ -6,7 +6,20 @@ var ball = new Ball(250, 350, 10, 10, [], -2, -2);
 var ballSpeedMax = 5;
 var ballSpeedIncrement = 1.05;
 var paddle = new Entity(75, $fg.height - 10, 75, 10);
-
+var blocks = initBlocks(9, 9);
+var blockRarities = [5, 5, 3, 2, 1];
+var pattern1 = [
+    1, 1, 1, 1, 1, 1, 1, 1, 1,
+    1, 1, 1, 1, 2, 1, 1, 1, 1,
+    1, 1, 1, 2, 2, 2, 1, 1, 1,
+    1, 1, 2, 3, 3, 3, 2, 1, 1,
+    1, 2, 2, 3, 4, 3, 2, 2, 1,
+    1, 1, 2, 3, 3, 3, 2, 1, 1,
+    1, 1, 1, 2, 2, 2, 1, 1, 1,
+    1, 1, 1, 1, 2, 1, 1, 1, 1,
+    1, 1, 1, 1, 1, 1, 1, 1, 1,
+];
+var pattern2 = createRandomPattern(9 * 9, 0, 5);
 //Define interactions:
 function updateBallLocation() {
     ball.updateLocation.call(ball);
@@ -172,3 +185,15 @@ function movePaddleLeft() {
 function movePaddleRight() {
     paddle.move(5, 0);
 }
+var controlls = [
+    { code: 37, isDown: false, action: movePaddleLeft },
+    { code: 39, isDown: false, action: movePaddleRight },
+];
+//Define game instance:
+setBlocksPattern(blocks, pattern2);
+var game = new Game(/*fps*/ 1000 / 75, /*background*/ $bg, /*foreground*/ $fg, [paddle, ball].concat(blocks), /*controlls*/ controlls, /*interactions*/[updateBallLocation, handleBoundaries, handlePaddleBallCollision, handleGameOver, handleBlockBallCollision]);
+//Start game:
+// game.start();
+var $gameMenu = document.querySelector("#game-menu");
+var $playButton = document.querySelector("#play-menu-button");
+var $settingsButton = document.querySelector("#settings-menu-button");
