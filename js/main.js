@@ -37,3 +37,24 @@ function detectCollision(a, b) {
     }
     return horizontalCollision && verticalCollision;
 }
+
+function handlePaddleBallCollision() {
+    var collision = detectCollision(paddle, ball);
+    // if (collision && ball.y < paddle.y) {
+    //   ball.y = paddle.y - ball.height;
+    //   ball.invertDirection(1, -1);
+    // }
+    var paddleSection = paddle.width / 7;
+    if (collision && ball.y < paddle.y) {
+        ball.y = paddle.y - ball.height;
+        if (ball.x < paddle.x + paddleSection) {
+            ball.invertDirection(-1, -1);
+        }
+        else if (ball.x > paddle.x + paddleSection * 6) {
+            ball.invertDirection(-1, -1);
+        }
+        else {
+            ball.invertDirection(1, -1);
+        }
+    }
+}
