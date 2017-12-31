@@ -86,3 +86,14 @@ function initBlocks(rows, columns) {
     }
     return blocks;
 }
+
+function setBlocksPattern(blocks, pattern) {
+    if (blocks.length !== pattern.length) {
+        throw new Error("Blocks and pattern arrays must be of equal length.");
+    }
+    else {
+        for (var i = 0; i < blocks.length; i++) {
+            blocks[i].type = pattern[i];
+        }
+    }
+}
