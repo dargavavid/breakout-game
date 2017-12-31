@@ -197,3 +197,7 @@ var game = new Game(/*fps*/ 1000 / 75, /*background*/ $bg, /*foreground*/ $fg, [
 var $gameMenu = document.querySelector("#game-menu");
 var $playButton = document.querySelector("#play-menu-button");
 var $settingsButton = document.querySelector("#settings-menu-button");
+
+function toggleMenuVisibility() {
+    $gameMenu.classList.toggle("hidden");
+}
