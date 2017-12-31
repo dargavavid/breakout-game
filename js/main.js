@@ -125,3 +125,13 @@ function calculatePoints(type) {
 function incrementGameScore(amount) {
     gameScore += amount;
 }
+
+function updateGameScoreDiv(score) {
+    var singles = score % 10;
+    var tens = Math.floor(score / 10) % 10;
+    var hundreds = Math.floor(score / 100) % 10;
+    var thousands = Math.floor(score / 1000) % 10;
+    var tenthousands = Math.floor(score / 10000) % 10;
+    var hundredthousands = Math.floor(score / 100000) % 10;
+    $gameScoreDiv.innerText = "" + hundredthousands + tenthousands + thousands + hundreds + tens + singles;
+}
