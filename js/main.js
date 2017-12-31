@@ -135,3 +135,10 @@ function updateGameScoreDiv(score) {
     var hundredthousands = Math.floor(score / 100000) % 10;
     $gameScoreDiv.innerText = "" + hundredthousands + tenthousands + thousands + hundreds + tens + singles;
 }
+
+function increaseBallSpeed() {
+    if (Math.abs(ball.vx) <= ballSpeedMax && Math.abs(ball.vy) <= ballSpeedMax) {
+        ball.vx *= ballSpeedIncrement;
+        ball.vy *= ballSpeedIncrement;
+    }
+}
